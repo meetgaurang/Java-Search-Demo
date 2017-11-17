@@ -2,22 +2,28 @@ package com.sample.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UsersDO {
 	private int _id;
 	private String url;
+	@JsonProperty("external_id")
 	private String externalId;
 	private String name;
 	private String alias;
+	@JsonProperty("created_at")
 	private String createdAt;
 	private String active;
 	private boolean verified;
 	private boolean shared;
 	private String locale;
 	private String timeZone;
+	@JsonProperty("last_login_at")
 	private String lastLoginAt;
 	private String email;
 	private String phone;
 	private String signature;
+	@JsonProperty("organization_id")
 	private int organizationId;
 	private List<String> tags;
 	private boolean suspended;
@@ -137,4 +143,10 @@ public class UsersDO {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	/*@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return _id + " " + name + " " + externalId + tags + organizationId + lastLoginAt;
+	}*/
 }

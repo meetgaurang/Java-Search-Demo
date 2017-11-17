@@ -21,6 +21,13 @@
         <version>3.21.0</version>
         <scope>runtime</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.9.2</version>
+	    <!-- <scope>runtime</scope> -->
+	</dependency>
   </dependencies>
   <build>
     <plugins>
@@ -32,7 +39,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.sample.common.AppEntryPoint</mainClass>
+              <mainClass>com.sample.services.JSONToJava</mainClass>
             </manifest>
           </archive>
         </configuration>
