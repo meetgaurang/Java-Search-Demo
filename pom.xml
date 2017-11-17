@@ -32,7 +32,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.sample.App</mainClass>
+              <mainClass>com.sample.common.AppEntryPoint</mainClass>
             </manifest>
           </archive>
         </configuration>

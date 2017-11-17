@@ -36,3 +36,5 @@ UserInterfaceState.xcuserstate
 
 target/
 .project
+.settings
+bin
