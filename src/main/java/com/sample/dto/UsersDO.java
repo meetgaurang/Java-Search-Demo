@@ -13,7 +13,7 @@ public class UsersDO {
 	private String alias;
 	@JsonProperty("created_at")
 	private String createdAt;
-	private String active;
+	private boolean active;
 	private boolean verified;
 	private boolean shared;
 	private String locale;
@@ -65,19 +65,19 @@ public class UsersDO {
 	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
-	public String getActive() {
+	public boolean getActive() {
 		return active;
 	}
-	public void setActive(String active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public boolean isVerified() {
+	public boolean getVerified() {
 		return verified;
 	}
 	public void setVerified(boolean verified) {
 		this.verified = verified;
 	}
-	public boolean isShared() {
+	public boolean getShared() {
 		return shared;
 	}
 	public void setShared(boolean shared) {
@@ -131,7 +131,7 @@ public class UsersDO {
 	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
-	public boolean isSuspended() {
+	public boolean getSuspended() {
 		return suspended;
 	}
 	public void setSuspended(boolean suspended) {
@@ -143,10 +143,4 @@ public class UsersDO {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	/*@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return _id + " " + name + " " + externalId + tags + organizationId + lastLoginAt;
-	}*/
 }

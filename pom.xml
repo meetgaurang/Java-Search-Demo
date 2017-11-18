@@ -21,12 +21,12 @@
         <version>3.21.0</version>
         <scope>runtime</scope>
     </dependency>
+    <!-- Jackson jar for converting from JSON to Java Object -->
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 	<dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-databind</artifactId>
 	    <version>2.9.2</version>
-	    <!-- <scope>runtime</scope> -->
 	</dependency>
   </dependencies>
   <build>
@@ -39,7 +39,8 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.sample.services.JSONToJava</mainClass>
+              <!-- <mainClass>com.sample.services.JSONToJava</mainClass> -->
+              <mainClass>com.sample.common.AppEntryPoint</mainClass>
             </manifest>
           </archive>
         </configuration>

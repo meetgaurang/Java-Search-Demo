@@ -7,31 +7,22 @@ import java.sql.*;
  */
 public class DBInit
 {
-	static private Connection c;
-	static private Statement statement;
-	static private void init() {
-		try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:test.db");         
-            System.out.println("Opened database successfully");
-        } catch ( Exception e ) {
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-            System.exit(0);
-        }
-	}	
-	static public Connection getConnection() {
-		if(c == null) {
-			init();
-		}
-		return c;
+	static private Connection connection;
+	static public void init() throws Exception{
+		initDBConnection();
+		prepareStructure();
 	}
-	static public Statement getStatement() {
-		try {
-			return getConnection().createStatement();
-        } catch ( Exception e ) {
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-            System.exit(0);
-            return null;
-        }
+	static private void initDBConnection() throws Exception {
+		Class.forName("org.sqlite.JDBC");
+        connection = DriverManager.getConnection("jdbc:sqlite:test.db"); 
+        System.out.println("Opened database successfully");
+	}
+	static private void prepareStructure() throws Exception {
+		Statement statement = connection.createStatement();
+		statement.executeUpdate(SQLQueries.CREATE_USERS_TABLE_QUERY);
+		statement.close();
+	}
+	static public Connection getConnection() {
+		return connection;
 	}
 }
