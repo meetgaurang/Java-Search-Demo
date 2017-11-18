@@ -26,7 +26,5 @@ public class JSONToJava {
 		for(UsersDO user: userList) {
 			userDAO.insert(user);
 		}
-		System.out.println(userList.size());
-		System.out.println(userList.get(0));
 	}
 }

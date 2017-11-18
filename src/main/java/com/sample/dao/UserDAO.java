@@ -1,7 +1,10 @@
 package com.sample.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import com.sample.dto.UsersDO;
 
@@ -32,5 +35,23 @@ public class UserDAO {
 		preparedStatement.setBoolean(18, userDO.getSuspended());
 		preparedStatement.setString(19, userDO.getRole());
 		preparedStatement.executeUpdate();
+	}
+	public void searchNDisplay(String fieldName, String fieldValue) throws SQLException {
+		String searchQuery = "select * from users where " + fieldName + "='" + fieldValue + "'";
+		Statement statement = DBInit.getConnection().createStatement();
+		ResultSet resultSet = statement.executeQuery(searchQuery);
+		ResultSetMetaData metaData = resultSet.getMetaData();
+		int totalColumnCount = metaData.getColumnCount();
+		int currentRecordIndex = 1;
+		while(resultSet.next()) {
+			int currentColumnIndex = 1;
+			System.out.println("\n********* Record." + currentRecordIndex++);
+			while(currentColumnIndex < totalColumnCount) {
+				System.out.println(String.format("%-18s %s" , 
+						metaData.getColumnName(currentColumnIndex), 
+						resultSet.getString(currentColumnIndex++)));
+			}
+		}
+		statement.close();
 	}
 }
