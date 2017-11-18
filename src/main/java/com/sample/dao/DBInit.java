@@ -26,6 +26,8 @@ public class DBInit
 	static private void prepareStructure() throws Exception {
 		Statement statement = connection.createStatement();
 		statement.executeUpdate(SQLQueries.CREATE_USERS_TABLE_QUERY);
+		statement.executeUpdate(SQLQueries.CREATE_TICKETS_TABLE_QUERY);
+		statement.executeUpdate(SQLQueries.CREATE_ORGANIZATIONS_TABLE_QUERY);
 		statement.close();
 	}
 	static public Connection getConnection() {

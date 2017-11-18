@@ -2,28 +2,37 @@ package com.sample.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TicketsDO {
-	private int _id;
+	private String _id;
 	private String url;
+	@JsonProperty("external_id")
 	private String externalId;
+	@JsonProperty("created_at")
 	private String createdAt;
 	private String type;
 	private String subject;
 	private String description;
 	private String priority;
 	private String status;
+	@JsonProperty("submitter_id")
 	private int submitterId;
+	@JsonProperty("assignee_id")
 	private int asigneeId;
+	@JsonProperty("organization_id")
 	private int organizationId;
 	private List<String> tags;
+	@JsonProperty("has_incidents")
 	private boolean hasIncidents;
+	@JsonProperty("due_at")
 	private String dueAt;
-	private String web;
+	private String via;
 	
-	public int get_id() {
+	public String get_id() {
 		return _id;
 	}
-	public void set_id(int _id) {
+	public void set_id(String _id) {
 		this._id = _id;
 	}
 	public String getUrl() {
@@ -98,7 +107,7 @@ public class TicketsDO {
 	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
-	public boolean isHasIncidents() {
+	public boolean getHasIncidents() {
 		return hasIncidents;
 	}
 	public void setHasIncidents(boolean hasIncidents) {
@@ -110,10 +119,10 @@ public class TicketsDO {
 	public void setDueAt(String dueAt) {
 		this.dueAt = dueAt;
 	}
-	public String getWeb() {
-		return web;
+	public String getVia() {
+		return via;
 	}
-	public void setWeb(String web) {
-		this.web = web;
+	public void setVia(String via) {
+		this.via = via;
 	}
 }

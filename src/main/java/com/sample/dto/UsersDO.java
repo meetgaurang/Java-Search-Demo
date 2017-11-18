@@ -17,6 +17,7 @@ public class UsersDO {
 	private boolean verified;
 	private boolean shared;
 	private String locale;
+	@JsonProperty("timezone")
 	private String timeZone;
 	@JsonProperty("last_login_at")
 	private String lastLoginAt;
