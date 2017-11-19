@@ -2,7 +2,7 @@ package com.sample.common;
 
 import com.sample.dao.DBInit;
 import com.sample.services.AskForInput;
-import com.sample.services.JSONToJava;
+import com.sample.services.JSONToDB;
 
 /**
  * App Entry Point Class
@@ -12,16 +12,19 @@ public class AppEntryPoint
     public static void main( String[] args )
     {
     	try {
+    		// Display welcome message
+    		AskForInput askForInput = new AskForInput();
+    		askForInput.showWelcomeMessage();
+    		// Initialize DB connection with SQLite
     		DBInit.init();
-	        JSONToJava jsonToJava = new JSONToJava();
+    		// Move data from JSON files to DB
+	        JSONToDB jsonToJava = new JSONToDB();
 	        jsonToJava.loadJSONDataIntoDB();
-	        
-	        AskForInput askForInput = new AskForInput();
-	        askForInput.showWelcomeMessage();
-	        askForInput.seekInput();
+	        // Ask user to start searching
+	        askForInput.seekUserInput();
 	    } catch ( Exception e ) {
 	        e.printStackTrace();
-	        System.exit(0);
+	        //System.exit(0);
 	    }
     }
 }
