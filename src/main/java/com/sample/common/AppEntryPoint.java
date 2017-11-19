@@ -1,8 +1,8 @@
 package com.sample.common;
 
 import com.sample.dao.DBInit;
-import com.sample.services.AskForInput;
-import com.sample.services.JSONToDB;
+import com.sample.services.HandleUserInputServices;
+import com.sample.services.JSONToDBServices;
 
 /**
  * App Entry Point Class
@@ -13,15 +13,15 @@ public class AppEntryPoint
     {
     	try {
     		// Display welcome message
-    		AskForInput askForInput = new AskForInput();
-    		askForInput.showWelcomeMessage();
+    		HandleUserInputServices handleUserInputServices = new HandleUserInputServices();
+    		handleUserInputServices.showWelcomeMessage();
     		// Initialize DB connection with SQLite
     		DBInit.init();
     		// Move data from JSON files to DB
-	        JSONToDB jsonToJava = new JSONToDB();
+	        JSONToDBServices jsonToJava = new JSONToDBServices();
 	        jsonToJava.loadJSONDataIntoDB();
 	        // Ask user to start searching
-	        askForInput.seekUserInput();
+	        handleUserInputServices.seekUserInput();
 	    } catch ( Exception e ) {
 	        e.printStackTrace();
 	        //System.exit(0);

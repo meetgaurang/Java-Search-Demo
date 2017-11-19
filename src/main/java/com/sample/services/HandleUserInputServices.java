@@ -7,7 +7,7 @@ import com.sample.dao.OrganizationDAO;
 import com.sample.dao.TicketDAO;
 import com.sample.dao.UserDAO;
 
-public class AskForInput {
+public class HandleUserInputServices {
 	Scanner scanner;
 	UserDAO userDAO;
 	TicketDAO ticketDAO;
