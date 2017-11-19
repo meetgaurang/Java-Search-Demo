@@ -1,5 +1,12 @@
 package com.sample.services;
 
-public class OrganizationServices {
+import java.sql.SQLException;
 
+import com.sample.dao.OrganizationDAO;
+
+public class OrganizationServices extends GenericServices{
+	public OrganizationServices() throws SQLException {
+		super();
+		dao = new OrganizationDAO();
+	}
 }

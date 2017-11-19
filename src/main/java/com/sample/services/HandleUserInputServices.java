@@ -3,27 +3,25 @@ package com.sample.services;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.sample.dao.OrganizationDAO;
-import com.sample.dao.TicketDAO;
-import com.sample.dao.UserDAO;
-
 public class HandleUserInputServices {
 	Scanner scanner;
-	UserDAO userDAO;
-	TicketDAO ticketDAO;
-	OrganizationDAO organizationDAO;
+	UserServices userServices;
+	TicketServices ticketServices;
+	OrganizationServices organizationServices;
 	
 	public void showWelcomeMessage() {
 		System.out.println("\n*************************");
 		System.out.println("Welcome to Zendesk Search");
 		System.out.println("*************************");
-		System.out.println("It may take upto 30 seconds to setup a Database at first. But we gurantee that further searches will be lightening fast! :)");
+		System.out.println("It may take upto 30 seconds to setup a Database at first. " + 
+				"But we gurantee that searche queriess will be lightening fast! :)");
 		System.out.println("\nLoading...");
 	}
 	public void seekUserInput() throws SQLException {
-		userDAO = new UserDAO();
-		ticketDAO = new TicketDAO();
-		organizationDAO = new OrganizationDAO();
+		userServices = new UserServices();
+		ticketServices = new TicketServices();
+		organizationServices = new OrganizationServices();
+		
 		scanner = new Scanner(System.in);
 		
 		String welcomeSearchOption = " ";
@@ -60,18 +58,18 @@ public class HandleUserInputServices {
 			System.out.println("Enter search value");
 			searchValue = scanner.nextLine();
 			if("1".equals(entityType)) {
-				userDAO.searchNDisplay(searchTerm, searchValue);
+				userServices.search(searchTerm, searchValue);
 			}
 			else if("2".equals(entityType)) {
-				ticketDAO.searchNDisplay(searchTerm, searchValue);
+				ticketServices.search(searchTerm, searchValue);
 			}
 			else if("3".equals(entityType)) {
-				organizationDAO.searchNDisplay(searchTerm, searchValue);
+				organizationServices.search(searchTerm, searchValue);
 			}
 		}
 		else if(("2").equals(searchOption)) {
 			// Show search options
-			userDAO.displayAllColumnNames();
+			userServices.displayAllColumnNames();
 		}
 		else if (("quit").equals(searchOption)) {
 			scanner.close();
