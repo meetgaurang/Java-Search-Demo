@@ -9,7 +9,8 @@ import java.sql.*;
 public class DBInit
 {
 	static private Connection connection;
-	static public void init() throws Exception{
+	static private String dbName;
+	static public void init(String dbName) throws Exception{
 		cleanup();
 		initDBConnection();
 		prepareStructure();
@@ -21,7 +22,7 @@ public class DBInit
 	}
 	static private void initDBConnection() throws Exception {
 		Class.forName("org.sqlite.JDBC");
-        connection = DriverManager.getConnection("jdbc:sqlite:zendesk.db");
+        connection = DriverManager.getConnection("jdbc:sqlite:" + dbName);
 	}
 	static private void prepareStructure() throws Exception {
 		Statement statement = connection.createStatement();

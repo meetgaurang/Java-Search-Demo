@@ -9,4 +9,9 @@ public class UserServices extends GenericServices{
 		super();
 		dao = new UserDAO();
 	}
+	@Override
+	public void search(String fieldName, String fieldValue) {
+		// TODO Auto-generated method stub
+		super.search(fieldName, fieldValue);
+	}
 }

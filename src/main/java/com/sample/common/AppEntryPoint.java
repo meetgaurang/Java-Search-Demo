@@ -16,7 +16,7 @@ public class AppEntryPoint
     		HandleUserInputServices handleUserInputServices = new HandleUserInputServices();
     		handleUserInputServices.showWelcomeMessage();
     		// Initialize DB connection with SQLite
-    		DBInit.init();
+    		DBInit.init("zendesk.db");
     		// Move data from JSON files to DB
 	        JSONToDBServices jsonToJava = new JSONToDBServices();
 	        jsonToJava.loadJSONDataIntoDB();

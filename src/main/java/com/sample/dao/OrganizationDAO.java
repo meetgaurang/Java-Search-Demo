@@ -1,5 +1,6 @@
 package com.sample.dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.sample.dto.OrganizationDO;
@@ -20,5 +21,10 @@ public class OrganizationDAO extends GenericDAO {
 		preparedStatement.setBoolean(8, organizationDO.getSharedTickets());
 		preparedStatement.setString(9, organizationDO.getTags().toString());
 		preparedStatement.executeUpdate();
+	}
+	@Override
+	public ResultSet search(String fieldName, String fieldValue) throws SQLException {
+		// TODO Auto-generated method stub
+		return super.search(fieldName, fieldValue);
 	}
 }

@@ -9,4 +9,9 @@ public class TicketServices extends GenericServices{
 		super();
 		dao = new TicketDAO();
 	}
+	@Override
+	public void search(String fieldName, String fieldValue) {
+		// TODO Auto-generated method stub
+		super.search(fieldName, fieldValue);
+	}
 }

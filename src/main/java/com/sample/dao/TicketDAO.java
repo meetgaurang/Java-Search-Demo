@@ -1,5 +1,6 @@
 package com.sample.dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.sample.dto.TicketsDO;
@@ -27,5 +28,10 @@ public class TicketDAO extends GenericDAO{
 		preparedStatement.setString(15, ticketDO.getDueAt());
 		preparedStatement.setString(16, ticketDO.getVia());
 		preparedStatement.executeUpdate();
+	}
+	@Override
+	public ResultSet search(String fieldName, String fieldValue) throws SQLException {
+		// TODO Auto-generated method stub
+		return super.search(fieldName, fieldValue);
 	}
 }

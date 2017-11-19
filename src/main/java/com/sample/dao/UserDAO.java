@@ -1,5 +1,6 @@
 package com.sample.dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.sample.dto.UsersDO;
@@ -30,5 +31,10 @@ public class UserDAO extends GenericDAO{
 		preparedStatement.setBoolean(18, userDO.getSuspended());
 		preparedStatement.setString(19, userDO.getRole());
 		preparedStatement.executeUpdate();
+	}
+	@Override
+	public ResultSet search(String fieldName, String fieldValue) throws SQLException {
+		// TODO Auto-generated method stub
+		return super.search(fieldName, fieldValue);
 	}
 }
