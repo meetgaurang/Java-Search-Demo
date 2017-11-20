@@ -30,6 +30,7 @@
 	</dependency>
   </dependencies>
   <build>
+  	<finalName>ZenDeskSearch_Without_Dependancy</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
@@ -39,10 +40,11 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <!-- <mainClass>com.sample.services.JSONToJava</mainClass> -->
               <mainClass>com.sample.common.AppEntryPoint</mainClass>
             </manifest>
           </archive>
+          <finalName>ZenDeskSearch</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
         </configuration>
       </plugin>
     </plugins>

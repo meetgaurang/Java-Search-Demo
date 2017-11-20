@@ -1,25 +1,24 @@
 package com.sample.dao;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
 import java.io.File;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.sample.dto.OrganizationDO;
+import com.sample.dto.TicketsDO;
+import com.sample.services.JSONToDBServices;
 
 public class OrganizationDAOTest {
 	@BeforeClass
 	public static void initOrganizationDAO() throws Exception{
         // Cleanup residual of previous test run, if any
-		File file = new File("null");
-        file.delete();    		
+		new File("zendesktest.db").delete();    		
         // Initialize Test DB
 		DBInit.init("zendesktest.db");			
 	}
@@ -33,10 +32,9 @@ public class OrganizationDAOTest {
 		// Retrieve record and verify its integrity
 		ResultSet resultSet = organizationDAO.search("name", "Heer");
 		resultSet.next();
-		assertEquals("Testing insertion and retrival operation", 
+		assertEquals("Testing SQL insertion and retrival operation of an entity", 
 				resultSet.getString("url"), "http://test.com");
-	}
-	
+	}	
 	private static OrganizationDO initOrganizationDO() {
 		// Initialize Test object with some random values
 		OrganizationDO organizationDO = new OrganizationDO();
@@ -58,5 +56,14 @@ public class OrganizationDAOTest {
 		tags.add("tag3");
 		organizationDO.setTags(tags);
 		return organizationDO;
+	}
+	@Test
+	public void testJSONLoadingFunctionality() throws Exception {
+		JSONToDBServices jsonToDBServices = new JSONToDBServices();
+		List<OrganizationDO> organizationList = jsonToDBServices.convertJSONFileToInMemoryObject("organizations-test-1.json", OrganizationDO.class);
+		assertEquals("JSON File Read Test: 1. Test the size of an retrieved list", 
+				organizationList.size(), 2);
+		assertEquals("JSON File Read Test: 2. Test the integrity of a retrieved element", 
+				organizationList.get(0).getName(), "Child Welfare Society");
 	}
 }

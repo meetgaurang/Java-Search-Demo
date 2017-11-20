@@ -11,14 +11,14 @@ public class DBInit
 	static private Connection connection;
 	static private String dbName;
 	static public void init(String dbName) throws Exception{
+		DBInit.dbName = dbName;
 		cleanup();
 		initDBConnection();
 		prepareStructure();
 	}
 	static private void cleanup() {
 		// Remove SQLite DB file
-        File file = new File("zendesk.db");
-        file.delete();    		
+		new File("zendesk.db").delete();
 	}
 	static private void initDBConnection() throws Exception {
 		Class.forName("org.sqlite.JDBC");
