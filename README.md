@@ -30,6 +30,14 @@ At the time of initialization, application creates local SQLite DB (e.g. zendesk
 
 **Scales Easily** It could easily handle 25000+ records as mentioned in [this comparision](https://sqlite.org/speed.html). Further, it could handle GBs of data with certain tweaks as mentioned [here](https://stackoverflow.com/a/6533930/1069893).
 
+## Test Case Coverage
+Currently test cases are there to test following critical features,
+* Read data from JSON file and test its integrity
+* Insert data into SQLite DB and test its integrity
+* Search data from SQLite DB
+
+Test case coverage can be enhanced further upon request.
+
 ## Integration with Jenkins
 Jenkins server, setup on my local machine, delivers more frequent build drops and raises any build related issue faster.
 ![](../master/src/main/resources/documentation-images/jenkins-ci.png)
@@ -51,4 +59,8 @@ Jenkins server, setup on my local machine, delivers more frequent build drops an
 4) That executes the Unit Test Cases and then generates the distribution JAR file - ZenDeskSearch.jar under following location,
 > Java-Search-Demo/target/ZenDeskSearch.jar
 
-## Future enhancement
+## Future enhancements
+1) Preventing malicious User Inputs to avoid SQL injection attack
+2) Adding Code Quality checks with SonaQube as part of Continuous Integration setup
+3) To generate log files
+4) Enhancing test case coverage
