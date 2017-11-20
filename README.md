@@ -29,7 +29,10 @@ At the time of initialization, application creates local SQLite DB (e.g. zendesk
 **Easy to Use** No extra installation as it is file-system based Database
 
 **Scales Easily** It could easily handle 25000+ records as mentioned in [this comparision](https://sqlite.org/speed.html). Further, it could handle GBs of data with certain tweaks as mentioned [here](https://stackoverflow.com/a/6533930/1069893).
-This file system based DB is fast and very light weight as it doesn't need any server to run.
+
+## Integration with Jenkins
+Jenkins server, setup on my local machine, delivers more frequent build drops and raises any build related issue faster.
+![](../master/src/main/resources/documentation-images/jenkins-ci.png)
 
 ## Prerequisite to Build the App on Developer's Machine
 * JDK (Java Development Kit) 1.8 or above
