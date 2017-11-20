@@ -1,12 +1,12 @@
-# Java Search Engine
+# Command-line based Search Engine
 The command-line based search engine
 
 ## Technologies used
-Programming Language: Java
-File System based Database: SQLite
-Unit Test Framework: jUnit
-Build Runner: Maven
-Continuous Integration Server: Jenkins
+* Programming Language: Java
+* File System based Database: SQLite
+* Unit Test Framework: jUnit
+* Build Runner: Maven
+* Continuous Integration Server: Jenkins
 
 ## Prerequisite to Run the App
 JRE (Java Run Time)
